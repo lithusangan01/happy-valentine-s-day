@@ -1,0 +1,299 @@
+:root {
+  --rose-500: #f46098;
+  --rose-700: #ba3568;
+  --ink: #50313f;
+  --ink-soft: #6c4b5c;
+  --line: rgba(231, 167, 195, 0.7);
+  --card: rgba(255, 255, 255, 0.75);
+  --font-heading: "Cormorant Garamond", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-body: "EB Garamond", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at 84% 12%, rgba(255, 223, 236, 0.9), rgba(255, 223, 236, 0)),
+    linear-gradient(145deg, #fff9fc, #ffeef6 54%, #fff8fb);
+}
+
+.login-shell {
+  position: relative;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.login-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.bubble-a {
+  width: 320px;
+  height: 320px;
+  left: -80px;
+  top: -100px;
+  background: radial-gradient(circle, rgba(255, 196, 220, 0.82), rgba(255, 196, 220, 0));
+  animation: bubble-float-a 12s ease-in-out infinite;
+}
+
+.bubble-b {
+  width: 390px;
+  height: 390px;
+  right: -100px;
+  bottom: -190px;
+  background: radial-gradient(circle, rgba(255, 209, 228, 0.84), rgba(255, 209, 228, 0));
+  animation: bubble-float-b 13s ease-in-out infinite;
+}
+
+.bubble-c {
+  width: 220px;
+  height: 220px;
+  right: 24%;
+  top: 20%;
+  background: radial-gradient(circle, rgba(255, 224, 236, 0.78), rgba(255, 224, 236, 0));
+  animation: bubble-float-c 10s ease-in-out infinite;
+}
+
+.love {
+  position: absolute;
+  color: rgba(216, 85, 134, 0.38);
+  font-size: 1.05rem;
+  animation: love-float 9s ease-in-out infinite;
+}
+
+.love-a {
+  left: 16%;
+  top: 18%;
+}
+
+.love-b {
+  right: 18%;
+  top: 30%;
+  animation-delay: 1s;
+}
+
+.love-c {
+  left: 62%;
+  bottom: 18%;
+  animation-delay: 1.8s;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+  width: min(470px, 100%);
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 24px 40px rgba(182, 81, 120, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  padding: 2rem 1.6rem 1.45rem;
+  text-align: center;
+  animation: card-rise 640ms cubic-bezier(0.22, 0.77, 0.24, 1);
+}
+
+.kicker {
+  margin: 0;
+  color: #8e6378;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0.42rem 0 0;
+  color: var(--rose-700);
+  line-height: 0.9;
+  font-family: var(--font-script);
+  font-size: clamp(3.2rem, 8.5vw, 5.2rem);
+}
+
+.subtitle {
+  margin: 0.86rem auto 1.1rem;
+  max-width: 340px;
+  color: var(--ink-soft);
+  font-size: 1.12rem;
+}
+
+.login-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.login-form input {
+  width: 100%;
+  border: 1px solid #edc7d8;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #4c3342;
+  font-family: inherit;
+  font-size: 1.04rem;
+  padding: 0.67rem 0.75rem;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.login-form input:focus {
+  border-color: #dc6996;
+  box-shadow: 0 0 0 3px rgba(220, 105, 150, 0.17);
+}
+
+#loginBtn {
+  margin-top: 0.3rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.62rem 1rem;
+  background: linear-gradient(135deg, #ff5d94, #cb2f64);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 12px 20px rgba(196, 65, 113, 0.37);
+  cursor: pointer;
+}
+
+#loginBtn:disabled {
+  opacity: 0.68;
+  cursor: default;
+}
+
+.hint {
+  margin: 0.95rem 0 0;
+  color: #865f73;
+  font-size: 0.92rem;
+}
+
+.message {
+  min-height: 1.35rem;
+  margin: 0.42rem 0 0;
+  font-size: 1rem;
+}
+
+.message.error {
+  color: #bd2b63;
+}
+
+.message.success {
+  color: #2f7d58;
+}
+
+.auth-card.shake {
+  animation: card-shake 360ms ease;
+}
+
+.auth-card.success {
+  box-shadow:
+    0 28px 44px rgba(110, 180, 150, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes card-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+}
+
+@keyframes bubble-float-a {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 14px);
+  }
+}
+
+@keyframes bubble-float-b {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-24px, -14px);
+  }
+}
+
+@keyframes bubble-float-c {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(14px, -10px);
+  }
+}
+
+@keyframes love-float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.32;
+  }
+  50% {
+    transform: translateY(-9px);
+    opacity: 0.65;
+  }
+}
+
+@media (max-width: 520px) {
+  .auth-card {
+    border-radius: 18px;
+    padding: 1.6rem 0.95rem 1.2rem;
+  }
+
+  .subtitle {
+    margin-bottom: 0.95rem;
+    font-size: 1.04rem;
+  }
+}

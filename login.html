@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Valentine Surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <main class="login-shell">
+      <div class="login-ambient" aria-hidden="true">
+        <span class="bubble bubble-a"></span>
+        <span class="bubble bubble-b"></span>
+        <span class="bubble bubble-c"></span>
+        <span class="love love-a">&#10084;</span>
+        <span class="love love-b">&#10084;</span>
+        <span class="love love-c">&#10084;</span>
+      </div>
+
+      <section class="auth-card" id="authCard">
+        <p class="kicker">Private Access</p>
+        <h1>Only For You</h1>
+        <p class="subtitle">Enter the secret key to unlock your love surprise.</p>
+
+        <form id="loginForm" class="login-form" autocomplete="off">
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Username"
+            aria-label="Username"
+            required
+          />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            aria-label="Password"
+            required
+          />
+          <button id="loginBtn" type="submit">Unlock Surprise</button>
+        </form>
+
+        <p class="hint">Hint : Us</p>
+        <p id="message" class="message" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="login.js"></script>
+  </body>
+</html>

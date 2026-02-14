@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine Surprise</title>
+    <script>
+      (function () {
+        try {
+          window.localStorage.removeItem("valentine_logged_in");
+          if (window.sessionStorage.getItem("valentine_logged_in") !== "true") {
+            window.location.replace("login.html");
+          }
+        } catch (error) {
+          window.location.replace("login.html");
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=EB+Garamond:wght@400;500;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="audio" href="anbil-avan.mp3" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="appShell">
+      <div class="ambient-layer" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+        <span class="orb orb-d"></span>
+        <span class="spark spark-a">&#10084;</span>
+        <span class="spark spark-b">&#10084;</span>
+        <span class="spark spark-c">&#10084;</span>
+        <span class="spark spark-d">&#10084;</span>
+      </div>
+
+      <div class="content-scroller" id="contentScroller">
+        <main class="page">
+          <header class="section hero reveal" id="heroSection">
+            <p class="hero-kicker">A private surprise for</p>
+            <h1>My Forever Love</h1>
+            <p class="hero-subtitle">Every love story is beautiful, but ours is my favorite.</p>
+            <button id="stepButton" class="step-button" type="button">Open Love Letter</button>
+            <p class="hero-note">tap to reveal each page</p>
+          </header>
+
+          <section class="section letter-section reveal" id="letterSection">
+            <div class="section-head">
+              <p>Chapter 1</p>
+              <h2>My Love Letter</h2>
+            </div>
+
+            <article class="letter-card">
+              <span class="seal">&#10084;</span>
+              <h3>My Dear Kattachiii...</h3>
+              <p id="typedLetter" class="letter-body"></p>
+              <p class="signature">Yours Always</p>
+            </article>
+          </section>
+
+          <section class="section memories-section reveal" id="memoriesSection">
+            <div class="section-head">
+              <p>Chapter 2</p>
+              <h2>Our Memories</h2>
+            </div>
+
+            <div class="memory-grid">
+              <figure class="memory-card">
+                <img src="memory1.jpg" alt="Memory snapshot one" loading="lazy" />
+              </figure>
+              <figure class="memory-card">
+                <img src="memory2.jpg" alt="Memory snapshot two" loading="lazy" />
+              </figure>
+              <figure class="memory-card">
+                <img src="memory3.jpg" alt="Memory snapshot three" loading="lazy" />
+              </figure>
+              <figure class="memory-card">
+                <img src="memory4.jpg" alt="Memory snapshot four" loading="lazy" />
+              </figure>
+              <figure class="memory-card">
+                <img src="memory5.jpg" alt="Memory snapshot five" loading="lazy" />
+              </figure>
+              <figure class="memory-card">
+                <img src="memory6.jpg" alt="Memory snapshot six" loading="lazy" />
+              </figure>
+            </div>
+          </section>
+
+          <section class="section songs-section reveal" id="songsSection">
+            <div class="section-head">
+              <p>Chapter 3</p>
+              <h2>Our Songs</h2>
+            </div>
+
+            <div class="music-layout">
+              <article class="now-playing-card" id="nowPlayingCard">
+                <div class="song-cover">
+                  <audio id="audioPlayer" class="song-audio" preload="auto"></audio>
+                  <div class="song-visualizer" aria-hidden="true">
+                    <span class="glow glow-a"></span>
+                    <span class="glow glow-b"></span>
+                    <div class="vinyl-disc">
+                      <span class="vinyl-core"></span>
+                    </div>
+                    <div class="equalizer">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="video-badge" aria-hidden="true">
+                    <span>Timeless Love Song</span>
+                  </div>
+                </div>
+
+                <div class="current-track-meta">
+                  <p id="currentTrackTitle" class="track-title">Anbil Avan</p>
+                  <p id="currentTrackArtist" class="track-artist">A.R. Rahman</p>
+                </div>
+
+                <button id="playPauseBtn" class="play-button" type="button" aria-label="Play or pause music">
+                  Play
+                </button>
+
+                <div class="timeline">
+                  <span id="currentTime">0:00</span>
+                  <input id="seekBar" type="range" min="0" max="100" value="0" aria-label="Seek media" />
+                  <span id="totalTime">0:00</span>
+                </div>
+              </article>
+
+              <aside class="playlist-wrap">
+                <ul id="playlist" class="playlist"></ul>
+              </aside>
+            </div>
+          </section>
+
+          <footer class="section footer reveal" id="footerSection">
+            <p class="forever">Forever &amp; Always</p>
+            <p class="footer-line">With you, every ordinary day feels magical.</p>
+            <button id="logoutBtn" class="logout-btn" type="button">Log Out</button>
+          </footer>
+        </main>
+      </div>
+
+      <div class="live-heart-layer" id="liveHeartLayer" aria-hidden="true"></div>
+      <div class="cursor-heart-layer" id="cursorHeartLayer" aria-hidden="true"></div>
+      <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+      <div class="scene-flash" id="sceneFlash" aria-hidden="true"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
